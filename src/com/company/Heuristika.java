@@ -10,19 +10,38 @@ import java.io.IOException;
 
 public class Heuristika {
 
-    final int n = 500;  // pocet
-    final int r = 350;  // min pocet predmetov v batohu
-    final int k = 9500; // min hmotnost
+    /*
+            => Jakub Šimek, 5ZYI21 - Zadanie H12
+             Vylepšený algoritmus duálnej heuristiky pre nižšie uvedené údaje, zotriedil som objekt "Predmet"
+             najprv podľa ceny, potom podľa hmotnosti čím som ho zlepšil a dosiahol optimálnejší výsledok úlohy.
+
+            => Výsledok úlohy je v textovom súbore Batoh
+     */
+
+    final int n = 500;  //pocet
+    final int r = 350;  //min pocet predmetov v batohu
+    final int k = 9500; //min hmotnost
 
     ArrayList<Integer> hmotnosti = new ArrayList<Integer>();
     ArrayList<Integer> ceny = new ArrayList<Integer>();
     ArrayList<Predmet> predmety = new ArrayList<Predmet>();
 
+    //Konštruktor s použitými metódami pre zjednodušenie kontroly
     public Heuristika() {
+        //Načítava údaje zadaného súboru do zadanej ArrayList
         this.nacitajUdaje("H2_c.txt", ceny);
+
+        //To isté ale s iným vstupným súborom a inou výstupnou ArrayList
         this.nacitajUdaje("H2_a.txt", hmotnosti);
+
+        //Vytvorí inštancie klasy Predmet ktorá ma 3 atribúty: cena, hmotnosť
+        // a index ktorý slúži pre skontrolovanie správnosti úlohy
         this.vytvorPredmety(predmety);
+
+        //Zotriedi ArrayList predmety podľa kritérií v tomto poradí: cena, hmotnosť
         this.zotriedPredmety(predmety);
+
+        //Vypisuje indexy vložených predmetov do Batohu ktorý je výsledným riešením úlohy
         this.vkladajDoBatohu();
     }
 
@@ -81,7 +100,7 @@ public class Heuristika {
 
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.out.println("Nastala chyba, súbor sa nenašiel!");
             e.printStackTrace();
         }
     }
