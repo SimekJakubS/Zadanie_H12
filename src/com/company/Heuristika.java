@@ -10,17 +10,9 @@ import java.io.IOException;
 
 public class Heuristika {
 
-    /*
-            => Jakub Šimek, 5ZYI21 - Zadanie H12
-             Vylepšený algoritmus duálnej heuristiky pre nižšie uvedené údaje, zotriedil som objekt "Predmet"
-             najprv podľa ceny, potom podľa hmotnosti čím som ho zlepšil a dosiahol optimálnejší výsledok úlohy.
-
-            => Výsledok úlohy je v textovom súbore Batoh
-     */
-
-    final int n = 500;  //pocet
-    final int r = 350;  //min pocet predmetov v batohu
-    final int k = 9500; //min hmotnost
+    private final int n = 500;  //pocet
+    private final int r = 350;  //min pocet predmetov v batohu
+    private final int k = 9500; //min hmotnost
 
     ArrayList<Integer> hmotnosti = new ArrayList<Integer>();
     ArrayList<Integer> ceny = new ArrayList<Integer>();
